@@ -23,14 +23,18 @@ This project was originally made on Linux, but it can also be compiled to
 run on Windows since Raylib is cross-platform.
 
 For Linux:
+```
 git clone https://github.com/guinuxli/lain-dancing.git
 cd lain-dancing
 make
+```
 
 For Windows:
+```
 git clone https://github.com/guinuxli/lain-dancing.git
 cd lain-dancing
 mingw32-make
+```
 
 > Make sure Raylib's `include` and `lib` folders (from the prebuilt package
 > you downloaded) are placed inside the project, matching the paths expected
