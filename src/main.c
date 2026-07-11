@@ -7,10 +7,14 @@ int main() {
 
     InitWindow(SCREEN_W, SCREEN_H, "Lain");
     InitAudioDevice();
-    
+
     Texture2D lainDancing = LoadTexture("assets/sprites/lain_dancing.png");
     Texture2D lainStanding = LoadTexture("assets/sprites/lain_stand.png");
     Music song = LoadMusicStream("assets/mus/song.ogg");
+
+    // icon
+    Image icon = LoadImage("assets/sprites/window_icon.png");
+    SetWindowIcon(icon);
 
     PlayMusicStream(song);
     song.looping = true;
@@ -43,7 +47,7 @@ int main() {
     const float frameTime = 0.1; // 100ms por frame
 
     bool isDancing = false; // parado por padrão
-    
+
 
     // --- config BACKGROUND ---
     Texture2D bgSheet = LoadTexture("assets/sprites/bg_sheet.png");
@@ -118,7 +122,7 @@ int main() {
                 0.0f,
                 WHITE
             );
-            
+
             // desenha a lain (dançando ou parada, dependendo do estado)
             // as duas usam lainDancingPosition, então não "pula" de lugar ao trocar
             if (isDancing) {
@@ -135,6 +139,7 @@ int main() {
     // --- Descarrecando dados da memória ---
     UnloadMusicStream(song);
     CloseAudioDevice();
+    UnloadImage(icon);
     UnloadTexture(lainDancing);
     UnloadTexture(lainStanding);
     UnloadTexture(bgSheet);
